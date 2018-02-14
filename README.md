@@ -1,22 +1,36 @@
 # my-dev-fixes
 My curated list of dev hacks, notes and fixes.
 
-#### Building android apps
+## Building android apps
 
 ```
+# clean shit:
 cd android
 gradlew clean
-# clean shit
+
+# build that shit
 cd ..
 react-native run-android
-# build that shit
 ```
 
-#### Reactotron not connecting
+## Reactotron not connecting
 
 ```
+# ensure config is correct
+Reactotron
+  .configure({
+    host: 'localhost', // can be any IP address
+	port: '9090' // default
+    })
+  // ...
+  .connect()
+  
+# list forwarded ports:
 adb reverse --list
-# list forwarded ports
+
+# forward default port for Reactotron:
 adb reverse tcp:9090 tcp:9090
-# forward default port for Reactotron
 ```
+
+## ~
+git add -A && git commit -m "update" && git push -u origin master
