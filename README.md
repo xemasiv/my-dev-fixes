@@ -32,5 +32,11 @@ adb reverse --list
 adb reverse tcp:9090 tcp:9090
 ```
 
+## React Native Yoganode Error
+
+1. Ensure your PC & Phone have same timezone settings
+2. On Windows -> Date & Time -> Internet Time tab -> Change Settings -> Check Synchronize -> Click Update Now
+3. On Device -> Settings -> Date & Time -> Toggle-on Auto updating -> Toggle it off
+
 ## ~
 git add -A && git commit -m "update" && git push -u origin master
