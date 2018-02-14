@@ -39,6 +39,13 @@ adb reverse tcp:9090 tcp:9090
 3. On Device -> Settings -> Date & Time -> Toggle-on Auto updating -> Toggle it off
 4. Restart / re-run your app.
 
+## Windows NDIS based Internet Sharing Device Error on Tethered Devices
+
+* Error codes 31 & 10
+
+1. Restart PC
+2. Restart Tethered Device
+
 ## Git fast commit & push
 
 ```
