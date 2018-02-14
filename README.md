@@ -39,5 +39,8 @@ adb reverse tcp:9090 tcp:9090
 3. On Device -> Settings -> Date & Time -> Toggle-on Auto updating -> Toggle it off
 4. Restart / re-run your app.
 
-## ~
+## Git fast commit & push
+
+```
 git add -A && git commit -m "update" && git push -u origin master
+```
