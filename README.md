@@ -46,6 +46,31 @@ adb reverse tcp:9090 tcp:9090
 1. Restart PC
 2. Restart Tethered Device
 
+## Axios simple graphql client
+
+```
+const axios = require('axios');
+axios.defaults.baseURL = 'http://localhost/';
+axios.defaults.url = '/graphql';
+axios.defaults.method = 'POST';
+axios.defaults.headers.post['Content-Type'] = 'application/json';
+
+axios
+  .request({
+    data: {
+      query: `{
+        hello
+      }`
+    }
+  })
+  .then((response)=>{
+    console.log(response.data);
+  })
+  .catch((error)=>{
+    console.log(error.response.data);
+  });
+```
+
 ## Git fast commit & push
 
 ```
