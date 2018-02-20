@@ -71,6 +71,31 @@ axios
   });
 ```
 
+## Binding EventEvemitter3 to an object
+
+`npm install eventemitter3 --save`
+
+```
+const EventEmitter = require('eventemitter3');
+
+Class SampleClass{
+  constructor () {
+    const emitter = new EventEmitter();
+    this.emit = emitter.emit.bind(emitter);
+    this.on = emitter.on.bind(emitter);
+  }
+  Test () {
+    this.emit('ready');
+  }
+}
+
+const Instance = new SampleClass();
+Instance.on('ready', ()=>{
+  console.log('ready!');
+});
+Instance.Test();
+```
+
 ## Git fast commit & push
 
 ```
