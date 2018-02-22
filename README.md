@@ -96,6 +96,34 @@ Instance.on('ready', ()=>{
 Instance.Test();
 ```
 
+## Why GraphQL
+
+* https://medium.com/@nzmebooks/taming-rest-apis-using-graphql-419cc9c0ec8
+* https://medium.freecodecamp.org/rest-apis-are-rest-in-peace-apis-long-live-graphql-d412e559d8e4
+* https://dev-blog.apollodata.com/graphql-vs-rest-5d425123e34b
+* https://blog.codeship.com/documenting-graphql/
+
+## How to GraphQL
+
+* http://graphql.org/graphql-js/
+* http://graphql.org/learn/schema/
+* https://www.apollographql.com/docs/apollo-server/example.html
+* https://www.apollographql.com/docs/graphql-tools/
+
+## Google Cloud
+
+* Regions & Zones - https://cloud.google.com/compute/docs/regions-zones/
+* Reserving IP Address - https://cloud.google.com/compute/docs/ip-addresses/reserve-static-external-ip-address
+
+## BitBucket
+
+* Generating SSH Keys - https://confluence.atlassian.com/x/X4FmKw
+
+## NodeJS
+
+* NodeJS Ubuntu Installation - https://nodejs.org/en/download/package-manager/
+* Express SSL - https://stackoverflow.com/a/11745114/9357445
+
 ## Git fast commit & push
 
 ```
