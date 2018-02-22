@@ -132,6 +132,134 @@ Instance.Test();
 * NodeJS Ubuntu Installation - https://nodejs.org/en/download/package-manager/
 * Express SSL - https://stackoverflow.com/a/11745114/9357445
 
+---
+
+## Free SSL & React Native Apps
+
+Problem:
+* Your react-native app can't reach your http server, since https is required
+* Your https server can't be reached, because sites / endpoints using self-signed certificates are disallowed
+* Long story short, XHR / axios / Webview can't reach your server
+
+Solution:
+
+1. Generate a CSR
+
+* You can use Namecheap's tool - https://decoder.link/csr_generator
+* Make sure you keep the private key, you'll use it later
+
+2. Go get a Free SSL catered by Comodo.
+
+* https://ssl.comodo.com/free-ssl-certificate.php
+* The certificate bundle you'll get won't be a self-signed one, a commodo support representative confirmed this with me.
+* Use your CSR, then validate your ownership
+* After couple of minutes you'll receive your cert bundle in your email, with 4 files
+  * `api_realtycoast_io.crt` (named after the domain I used, which is api.realtycoast.io)
+  * `AddTrustExternalCARoot.crt`
+  * `COMODORSAAddTrustCA.crt`
+  * `COMODORSADomainValidationSecureServerCA.crt`
+  
+3. Do a CA/End-Entity Certificate matching
+
+* Go to CA/End-Entity Certificate Matcher
+* Paste the content of your `api_realtycoast_io.crt` equivalent as the END ENTITY CERTIFICATE
+* Paste the content of your `COMODORSADomainValidationSecureServerCA.crt` as the CA CERTIFICATE
+* Validate that shit, should be successful - if so, we proceed
+
+4. Configure your Express SSL configuration
+
+* Create a `/ssl` folder
+* Put all those certificate files there
+* Create a `private.key` file, PASTE YOUR PRIVATE KEY from STEP 1 there
+* Now we use your site's certificate, your private key, and your CA certificate
+
+```
+const fs = require('fs');
+const http = require('http');
+const https = require('https');
+const express = require('express');
+const bodyParser = require('body-parser');
+
+const SSL = {
+  credentials: {
+    key: fs.readFileSync('ssl/private.key', 'utf8'),
+    cert: fs.readFileSync('ssl/api_realtycoast_io.crt', 'utf8'),
+    ca: [
+      fs.readFileSync('ssl/COMODORSADomainValidationSecureServerCA.crt', 'utf8')
+    ]
+  }
+};
+
+const app = express();
+app.use(bodyParser.json());
+app.get('/', (req, res) => res.send('Hello World!'));
+http.createServer(app).listen(80);
+https.createServer(SSL.credentials, app).listen(443);
+```
+
+* Git add, commit and push that shit
+* Run your nodejs server again
+
+5. Verify that shit
+
+* Visit your `https://yoursite.com/` that should be working well
+* Visit `https://www.sslshopper.com/ssl-checker.html`
+* Check your server endpoint's url there, you should be seeing ALL CHECKS, AND NO X's
+
+6. Rebuild your react-native app, and re-run it - should be workign well now
+
+* Test code for webview
+
+```
+import { WebView, View } from 'react-native';
+
+// in your component render(), below
+
+return (
+<View style={{flex:1}}>
+	<WebView
+	source={{uri: 'https://api.realtycoast.io/auth'}}
+	javaScriptEnabled={true}
+	domStorageEnabled={true}
+	startInLoadingState={true}
+	style={{ flex:1, height: 500, width: 350 }}
+	/>
+	</View>
+);
+```
+
+* Test code for axios
+
+```
+	// replace your baseURL and url, below
+	
+          <Button onPress={
+            ()=>{
+              const x = axios.create({
+                baseURL: 'https://api.realtycoast.io/',
+                timeout: 10000,
+                headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json',
+                }
+              });
+            x.request({
+              url: '/user/123'
+            })
+              .then(function (response) {
+                console.log(response);
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
+            }
+          }>
+            <Text>Axios Test</Text>
+          </Button>
+```
+
+---
+
 ## Git fast commit & push
 
 ```
