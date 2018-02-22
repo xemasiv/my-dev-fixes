@@ -114,6 +114,8 @@ Instance.Test();
 
 * Regions & Zones - https://cloud.google.com/compute/docs/regions-zones/
 * Reserving IP Address - https://cloud.google.com/compute/docs/ip-addresses/reserve-static-external-ip-address
+* Datastore Entities - https://cloud.google.com/datastore/docs/concepts/entities#retrieving_an_entity
+* Datastore Queries - https://cloud.google.com/datastore/docs/concepts/queries
 
 ## BitBucket
 
