@@ -161,7 +161,7 @@ Solution:
   
 3. Do a CA/End-Entity Certificate matching
 
-* Go to CA/End-Entity Certificate Matcher
+* Go to https://decoder.link/ca_matcher
 * Paste the content of your `api_realtycoast_io.crt` equivalent as the END ENTITY CERTIFICATE
 * Paste the content of your `COMODORSADomainValidationSecureServerCA.crt` as the CA CERTIFICATE
 * Validate that shit, should be successful - if so, we proceed
