@@ -1,6 +1,15 @@
 # my-dev-fixes
 My curated list of dev hacks, notes and fixes.
 
+## Android device not found
+
+`adb reverse tcp:8081 tcp:8081 && adb reverse tcp:8097 tcp:8097 && adb reverse --list`
+
+## Speeding up gradle builds
+
+* https://hackernoon.com/how-to-speed-up-your-slow-gradle-builds-5d9a9545f91a
+* https://medium.com/@wasyl/make-your-gradle-builds-fast-again-ea323ce6a435
+
 ## Building android apps
 
 ```
