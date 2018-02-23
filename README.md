@@ -1,6 +1,15 @@
 # my-dev-fixes
 My curated list of dev hacks, notes and fixes.
 
+## Error: EPERM: operation not permitted, unlink
+
+* Execute `npm install --save` with `--no-bin-links`
+* Or use npm 5.3 `npm install -g npm@5.3`
+* Or use npm 5.0.3 `npm install -g npm@5.0.3`
+* Or use npm 5.7.1 `npm install -g npm@5.7.1`
+* Or use `yarn` LOL WORKED FOR ME
+  * https://yarnpkg.com/lang/en/docs/migrating-from-npm/
+  
 ## Android device not found
 
 `adb reverse tcp:8081 tcp:8081 && adb reverse tcp:8097 tcp:8097 && adb reverse --list`
