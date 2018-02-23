@@ -1,6 +1,12 @@
 # my-dev-fixes
 My curated list of dev hacks, notes and fixes.
 
+## Error retrieving parent for item: No resource found that matches the given name blah blah Material.Widget.Button.Borderless.Colored
+
+Your newly installed & linked library has sdk version conflicts with your project.
+
+FIX IT.
+
 ## Error: EPERM: operation not permitted, unlink
 
 * Execute `npm install --save` with `--no-bin-links`
