@@ -3,9 +3,9 @@ My curated list of dev hacks, notes and fixes.
 
 ## Unable to load script from assets 'index.android.bundle'. Make sure your bundle is packaged correctly or you're running a packager server.
 
-`react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res`
-
-
+```
+react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res
+```
 
 ## Error retrieving parent for item: No resource found that matches the given name blah blah Material.Widget.Button.Borderless.Colored
 
