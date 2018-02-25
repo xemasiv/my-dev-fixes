@@ -1,6 +1,14 @@
 # my-dev-fixes
 My curated list of dev hacks, notes and fixes.
 
+```
+# gradlew clean & debug run
+cls && cd android && gradlew clean && cd .. && react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res &&  react-native run-android --variant=release
+
+# reset fbsdk modifications by yarn
+cd node_modules && git checkout HEAD -- react-native-fbsdk && cd ..
+```
+
 ## Unable to load script from assets 'index.android.bundle'. Make sure your bundle is packaged correctly or you're running a packager server.
 
 ```
