@@ -9,6 +9,10 @@ cls && cd android && gradlew clean && cd .. && react-native bundle --platform an
 cd node_modules && git checkout HEAD -- react-native-fbsdk && cd ..
 ```
 
+## Git reset to past commit
+
+`git reset --hard 2kd2dka`
+
 ## Unable to load script from assets 'index.android.bundle'. Make sure your bundle is packaged correctly or you're running a packager server.
 
 ```
