@@ -13,6 +13,11 @@ cd node_modules && git checkout HEAD -- react-native-fbsdk && cd ..
 
 `git reset --hard 2kd2dka`
 
+## Cannot resolve module from github link
+
+1. You have to build the library manually since it's not from NPM.
+2. `npm run compile` / `npm run build` or whatever - it varies
+
 ## Unable to load script from assets 'index.android.bundle'. Make sure your bundle is packaged correctly or you're running a packager server.
 
 ```
