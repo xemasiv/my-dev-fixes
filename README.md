@@ -9,9 +9,21 @@ cls && cd android && gradlew clean && cd .. && react-native bundle --platform an
 cd node_modules && git checkout HEAD -- react-native-fbsdk && cd ..
 ```
 
-## Git reset to past commit
+
+
+## Git 
+
+reset to past commit
 
 `git reset --hard 2kd2dka`
+
+cleanup ignored files
+
+```
+git rm -r --cached .
+git add .
+git commit -m "Clean up ignored files"
+```
 
 ## Cannot resolve module from github link
 
