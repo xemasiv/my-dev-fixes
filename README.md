@@ -1,6 +1,14 @@
 # my-dev-fixes
 My curated list of dev hacks, notes and fixes.
 
+### Task 'installRelease' not found in root project 'heyjs'. Some candidates are: 'uninstallRelease'.
+```
+You'll need to setup a keystore + configure signing for installRelease. Follow the instructions here:
+https://facebook.github.io/react-native/docs/signed-apk-android.html
+
+from https://github.com/xinthink/rnmk-demo/issues/7#issuecomment-218613454
+```
+
 ```
 # gradlew clean & debug run
 cls && cd android && gradlew clean && cd .. && react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res &&  react-native run-android --variant=release
